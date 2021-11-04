@@ -1,0 +1,32 @@
+{
+  "Home": {
+    "Category": "Otu",
+    "Search": "Chọọ",
+    "All": "Ha niile",
+    "Food": "Nri",
+    "Drink": "Ihe ọṅụṅụ",
+    "Left": "Aka ekpe",
+    "Right": "Aka nni",
+    "mins": "nkeji",
+    "Pancake": "Pancake",
+    "Salad": "Salad"
+  },
+  "Detail": {
+    "Food": "Nri",
+    "mins": "nkeji",
+    "Likes": "Mmasị",
+    "Description": "Nkọwa",
+    "Ingredients": "Efrata",
+    "Pancakes": "Pancakes",
+    "Eggs": "Akwa",
+    "Butter": "Bọta",
+    "DescriptionText": "Ebugola usoro nri gị, ị ga-ahụ ya na profaịlụ gị. Ebugola usoro nri gị, ị ga-ahụ ya na nke gị"
+  },
+  "TabBar": {
+    "Home": "Ụlọ",
+    "Upload": "Bulite",
+    "Scan": "Nyochaa",
+    "Notification": "ngosi",
+    "Profile": "Profaịlụ"
+  }
+}

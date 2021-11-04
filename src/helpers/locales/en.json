@@ -1,0 +1,32 @@
+{
+  "Home": {
+    "Category": "Category",
+    "Search": "Search",
+    "All": "All",
+    "Food": "Food",
+    "Drink": "Drink",
+    "Left": "Left",
+    "Right": "Right",
+    "mins": "mins",
+    "Pancake": "Pancake",
+    "Salad": "Salad"
+  },
+  "Detail": {
+    "Food": "Food",
+    "mins": "mins",
+    "Likes": "Likes",
+    "Description": "Description",
+    "Ingredients": "Ingredients",
+    "Pancakes": "Pancakes",
+    "Eggs": "Eggs",
+    "Butter": "Butter",
+    "DescriptionText": "Your recipe has been uploaded, you can see it on your profile. Your recipe has been uploaded, you can see it on your"
+  },
+  "TabBar": {
+    "Home": "Home",
+    "Upload": "Upload",
+    "Scan": "Scan",
+    "Notification": "Notification",
+    "Profile": "Profile"
+  }
+}

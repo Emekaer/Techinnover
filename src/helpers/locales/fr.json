@@ -1,0 +1,32 @@
+{
+  "Home": {
+    "Category": "Catégorie",
+    "Search": "Chercher",
+    "All": "Tout",
+    "Food": "Nourriture",
+    "Drink": "Boire",
+    "Left": "Gauche",
+    "Right": "Droit",
+    "mins": "minutes",
+    "Pancake": "Crêpe",
+    "Salad": "Salade"
+  },
+  "Detail": {
+    "Food": "Nourriture",
+    "mins": "minutes",
+    "Likes": "Aime",
+    "Description": "Description",
+    "Ingredients": "Ingrédients",
+    "Pancakes": "Crêpes",
+    "Eggs": "œufs",
+    "Butter": "Beurre",
+    "DescriptionText": "Votre recette a été téléchargée, vous pouvez la voir sur votre profil. Votre recette a été téléchargée, vous pouvez la voir sur votre"
+  },
+  "TabBar": {
+    "Home": "Accueil",
+    "Upload": "Télécharger",
+    "Scan": "Analyse",
+    "Notification": "Notification",
+    "Profile": "Profil"
+  }
+}

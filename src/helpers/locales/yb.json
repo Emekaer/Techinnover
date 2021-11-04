@@ -1,0 +1,32 @@
+{
+  "Home": {
+    "Category": "Ẹka",
+    "Search": "Wa",
+    "All": "All",
+    "Food": "Gbogbo",
+    "Drink": "Mu",
+    "Left": "Osi",
+    "Right": "Ọtun",
+    "mins": "iseju",
+    "Pancake": "Pancake",
+    "Salad": "Saladi"
+  },
+  "Detail": {
+    "Food": "Gbogbo",
+    "mins": "iseju",
+    "Likes": "Fẹran",
+    "Description": "Apejuwe",
+    "Ingredients": "Awọn eroja",
+    "Pancakes": "Pancakes",
+    "Eggs": "Eyin",
+    "Butter": "Bota",
+    "DescriptionText": "A ti gbe ohunelo rẹ silẹ, o le rii lori profaili rẹ. Rẹ ilana ti a ti Àwọn, o ti le ri lori rẹ"
+  },
+  "TabBar": {
+    "Home": "Ile",
+    "Upload": "Gbee si",
+    "Scan": "Ṣayẹwo",
+    "Notification": "Iwifunni",
+    "Profile": "Profaili"
+  }
+}
