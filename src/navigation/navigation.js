@@ -41,8 +41,8 @@ let x = 0;
 const langs = ["en", "fr", "yb", "ig"];
 const languageChange = () => {
   x = x + 1;
-
-  i18n.locale = langs[x];
+  const y = x % 4;
+  i18n.locale = langs[y];
 };
 
 const CustomTabBarButton = ({ children, onPress, focused }) => (
