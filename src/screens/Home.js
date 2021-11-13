@@ -6,6 +6,7 @@ import {
   FlatList,
   TouchableOpacity,
   Platform,
+  TextInput,
 } from "react-native";
 import FilterContainer from "../components/FilterContainer";
 import ItemComponent from "../components/ItemComponent";
@@ -17,44 +18,53 @@ import {
 } from "react-native-safe-area-context";
 import i18n from "../helpers/i18n";
 
+const DATA = [
+  {
+    username: "Calum Lewis",
+    itemName: `${i18n.t("Home.Pancake")}`,
+    profilePicture: require("../../assets/images/CL.png"),
+    foodPicture: require("../../assets/images/Pancake.png"),
+    itemType: `${i18n.t("Home.Food")}`,
+    deliveryTime: 60,
+  },
+  {
+    username: "Eilif Sonas",
+    itemName: `${i18n.t("Home.Salad")}`,
+    profilePicture: require("../../assets/images/ES1.png"),
+    foodPicture: require("../../assets/images/Salad.png"),
+    itemType: `${i18n.t("Home.Food")}`,
+    deliveryTime: 60,
+  },
+  {
+    username: "Elena Shelby",
+    itemName: `${i18n.t("Home.Pancake")}`,
+    profilePicture: require("../../assets/images/ES2.png"),
+    foodPicture: require("../../assets/images/Pancake2.png"),
+    itemType: `${i18n.t("Home.Food")}`,
+    deliveryTime: 60,
+  },
+  {
+    username: "John Priyadi",
+    itemName: `${i18n.t("Home.Salad")}`,
+    profilePicture: require("../../assets/images/JP.png"),
+    foodPicture: require("../../assets/images/Salad2.png"),
+    itemType: `${i18n.t("Home.Food")}`,
+    deliveryTime: 60,
+  },
+];
+
 const Home = (props) => {
   const insets = useSafeAreaInsets();
   const [side, setSide] = useState("left");
+  const [data, setData] = useState(DATA);
 
-  const DATA = [
-    {
-      username: "Calum Lewis",
-      itemName: `${i18n.t("Home.Pancake")}`,
-      profilePicture: require("../../assets/images/CL.png"),
-      foodPicture: require("../../assets/images/Pancake.png"),
-      itemType: `${i18n.t("Home.Food")}`,
-      deliveryTime: 60,
-    },
-    {
-      username: "Eilif Sonas",
-      itemName: `${i18n.t("Home.Salad")}`,
-      profilePicture: require("../../assets/images/ES1.png"),
-      foodPicture: require("../../assets/images/Salad.png"),
-      itemType: `${i18n.t("Home.Food")}`,
-      deliveryTime: 60,
-    },
-    {
-      username: "Elena Shelby",
-      itemName: `${i18n.t("Home.Pancake")}`,
-      profilePicture: require("../../assets/images/ES2.png"),
-      foodPicture: require("../../assets/images/Pancake2.png"),
-      itemType: `${i18n.t("Home.Food")}`,
-      deliveryTime: 60,
-    },
-    {
-      username: "John Priyadi",
-      itemName: `${i18n.t("Home.Salad")}`,
-      profilePicture: require("../../assets/images/JP.png"),
-      foodPicture: require("../../assets/images/Salad2.png"),
-      itemType: `${i18n.t("Home.Food")}`,
-      deliveryTime: 60,
-    },
-  ];
+  const search = (input) => {
+    if (input) {
+      setData(DATA.filter((item) => item.itemName === input));
+    } else {
+      setData(DATA);
+    }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -62,7 +72,12 @@ const Home = (props) => {
         <View style={styles.searchIcon}>
           <Images.search />
         </View>
-        <Text>{i18n.t("Home.Search")}</Text>
+        <TextInput
+          placeholder={i18n.t("Home.Search")}
+          onChangeText={(text) => {
+            search(text);
+          }}
+        />
       </View>
       <View style={styles.categoryContainer}>
         <Text style={styles.categoryText}>{i18n.t("Home.Category")}</Text>
@@ -121,27 +136,33 @@ const Home = (props) => {
           marginBottom: Platform.OS === "ios" ? insets.bottom + 25 : 100,
         }}
       >
-        <FlatList
-          data={DATA}
-          showsVerticalScrollIndicator={false}
-          renderItem={({ item }) => (
-            <ItemComponent
-              username={item.username}
-              itemName={item.itemName}
-              itemType={item.itemType}
-              deliveryTime={item.deliveryTime}
-              profilePicture={item.profilePicture}
-              foodPicture={item.foodPicture}
-              onPress={() => props.navigation.navigate("Details")}
-            />
-          )}
-          columnWrapperStyle={styles.rowStyle}
-          keyExtractor={(item, index) => item.username + index}
-          numColumns={2}
-          ItemSeparatorComponent={() => (
-            <View style={{ width: "100%", height: 32 }} />
-          )}
-        />
+        {data.length > 0 ? (
+          <FlatList
+            data={data}
+            showsVerticalScrollIndicator={false}
+            renderItem={({ item }) => (
+              <ItemComponent
+                username={item.username}
+                itemName={item.itemName}
+                itemType={item.itemType}
+                deliveryTime={item.deliveryTime}
+                profilePicture={item.profilePicture}
+                foodPicture={item.foodPicture}
+                onPress={() => props.navigation.navigate("Details")}
+              />
+            )}
+            columnWrapperStyle={styles.rowStyle}
+            keyExtractor={(item, index) => item.username + index}
+            numColumns={2}
+            ItemSeparatorComponent={() => (
+              <View style={{ width: "100%", height: 32 }} />
+            )}
+          />
+        ) : (
+          <Text style={styles.unavailableItem}>
+            The item you're searching for is not available.
+          </Text>
+        )}
       </View>
     </SafeAreaView>
   );
@@ -226,6 +247,11 @@ const styles = StyleSheet.create({
   rowStyle: {
     flex: 1,
     justifyContent: "space-between",
+  },
+  unavailableItem: {
+    fontSize: 20,
+    textAlign: "center",
+    color: Colors.secondaryText,
   },
 });
 
